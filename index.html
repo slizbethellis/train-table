@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<title>Train Table</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer/sticky-footer.css">
+	<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Special+Elite" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="assets/style.css">
+	<script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script src="https://use.fontawesome.com/b7e3bcf6e1.js"></script>
+	<script src="assets/app.js"></script>
+</head>
+
+<body>
+	<div class="container-fluid bg-secondary pb-1">
+		<div class="jumbotron jumbotron-fluid bg-dark">
+			<div class="container text-center text-info">
+		    <h1 class="display-4">Trains!!!</h1>
+		    <p>Potentially useful info for commuters, travelers, or trainspotters.</p>
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="card-header bg-danger text-light">
+		    Current Train Schedule
+		  </div>
+		  <div class="card-body bg-light">
+		    <table class="table table-responsive-sm table-sm table-hover" id="trainTable">
+				  <thead>
+				    <tr>
+				      <th scope="col">Train Name</th>
+				      <th scope="col">Destination</th>
+				      <th scope="col">Frequency (min)</th>
+				      <th scope="col">Next Arrival</th>
+				      <th scope="col">Minutes Away</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <!-- User added trains go here -->
+				  </tbody>
+				</table>
+		  </div>
+		</div>
+		
+		<div class="card mt-1">
+		  <div class="card-header bg-danger text-light">
+		    Add Train
+		  </div>
+		  <div class="card-body bg-light">
+		    <form id="form">
+		    	<div class="row">
+		    		<div class="col-lg-6">
+		    			<div class="form-group">
+						    <label for="train-name">Train Name</label>
+						    <input type="text" class="form-control" id="train-name" placeholder="Train Name">
+						  </div>
+		    		</div>
+		    		<div class="col-lg-6">
+		    			<div class="form-group">
+					    <label for="destination">Destination</label>
+					    <input type="text" class="form-control" id="destination" placeholder="Destination">
+					  </div>
+		    		</div>
+		    	</div>
+		    	<div class="row">
+		    		<div class="col-lg-6">
+		    			<div class="form-group">
+						    <label for="first-train">First Train Time (HH:mm)</label>
+						    <input type="text" class="form-control" id="first-train" placeholder="HH:mm">
+						  </div>
+		    		</div>
+		    		<div class="col-lg-6">
+		    			<div class="form-group">
+						    <label for="frequency">Frequency (min)</label>
+						    <input type="number" class="form-control" id="frequency" placeholder="minutes">
+						  </div>
+		    		</div>
+		    	</div>
+		    	<div class="row">
+		    		<div class="col-lg-12">
+		    			<button type="submit" class="btn btn-warning" id="submit">Submit</button>
+		    		</div>
+		    	</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<footer class="footer bg-dark">
+    <div class="container text-center text-secondary" id="footer-text">
+      <span><small>&copy; Copyright 2017 Sarah Ellis</small></span>
+    </div>
+  </footer>
+	
+</body>
+</html>

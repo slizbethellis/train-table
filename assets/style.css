@@ -1,0 +1,7 @@
+footer, .jumbotron, .card-header {
+	font-family: 'Special Elite', cursive;
+}
+
+form, .table, #firebaseui-auth-container, #submit {
+	font-family: 'Fjalla One', sans-serif;
+}
