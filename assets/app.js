@@ -9,16 +9,15 @@ $(document).ready(function (){
     messagingSenderId: "125285862164"
   };
   firebase.initializeApp(config);
-
   var database = firebase.database();
 
+  // form submission
   $("#submit").on("click", function(event) {
     event.preventDefault();
     var trainName = $("#train-name").val().trim();
     var destination = $("#destination").val().trim();
     var firstTrain = $("#first-train").val().trim();
     var frequency = parseInt($("#frequency").val().trim());
-    console.log(firstTrain);
     var newTrain = {
       trainName: trainName,
       destination: destination,
@@ -30,6 +29,7 @@ $(document).ready(function (){
     $("#form").reset();
   });
 
+  // loads existing trains in database and adds new train records to table
   database.ref('/trains').on("child_added", function(snapshot) {
     var trainName = snapshot.val().trainName;
     var destination = snapshot.val().destination;
@@ -42,7 +42,6 @@ $(document).ready(function (){
     while (timeNow.diff(nextTrain) > 0) {
       nextTrain.add(frequency, 'minutes');
     }
-    console.log(nextTrain);
     var minToArrival = nextTrain.diff(timeNow, 'minutes');
     var arrivalTime = nextTrain.format("hh:mm A");
     
